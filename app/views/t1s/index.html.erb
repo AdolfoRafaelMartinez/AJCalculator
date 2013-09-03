@@ -1,0 +1,200 @@
+<h1>Expected Target Position</h1>
+<script type="text/javascript">
+$(function() {
+  var d2 = [
+	  [<%= @expected_x - 0.1 %>,<%= @expected_y - 0.1 %>],
+	  [<%= @expected_x + 0.1 %>,<%= @expected_y - 0.1 %>],
+	  [<%= @expected_x + 0.1 %>,<%= @expected_y + 0.1 %>], 
+	  [<%= @expected_x - 0.1 %>,<%= @expected_y + 0.1 %>],
+	  [<%= @expected_x - 0.1 %>,<%= @expected_y - 0.1 %>]
+	];
+  $.plot("#placeholder", [d2], { xaxis:{min:0,max:<%= SEPARATION_X %>}, yaxis:{min:0,max:<%= SEPARATION_Y %>}, series: { color: "rgb(255,0,0)", lines: { show: true }, points: { show: true } }});
+});
+</script>
+<div id="content">
+  <div class="demo-container">
+    <div id="placeholder" class="demo-placeholder" >
+    </div>
+  </div>  
+</div>  
+<h2>Signal Strength</h2>
+<table border ="1" >
+  <tr>
+    <td>
+      Sensor
+    </td>
+    <td>
+      Strength
+    </td>
+  </tr>
+  <tr>
+    <td>
+      BL
+    </td>
+    <td>
+      <%= @rssi1 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      BR
+    </td>
+    <td>
+      <%= @rssi2 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TR
+    </td>
+    <td>
+      <%= @rssi3 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TL
+    </td>
+    <td>
+      <%= @rssi4 %>
+    </td>
+  </tr>
+</table>
+
+<h2>Polar Distance </h2>
+<table border="1" >
+  <tr>
+    <th>Sensor</th>
+    <th>Distance</th>
+  </tr>
+  <tr>
+    <td>BL</td>
+    <td><%= @sensor1_distance_model %></td>
+  </tr>
+  <tr>
+    <td>BR</td>
+    <td><%= @sensor2_distance_model %></td>
+  </tr>
+  <tr>
+    <td>TR</td>
+    <td><%= @sensor3_distance_model %></td>
+  </tr>
+  <tr>
+    <td>TL</td>
+    <td><%= @sensor4_distance_model %></td>
+  </tr>
+</table>
+
+<h2>Limits</h2>
+<table border="1" >
+  <tr>
+    <th>Sensor</th>
+    <th>Min x</th>
+    <th>Min y</th>
+    <th>Max x</th>
+    <th>Max y</th>
+  </tr>
+  <tr>
+    <td>BL</td>
+    <td>(na)</td>
+    <td>(na)</td>
+    <td><%= @x1_max %></td>
+    <td><%= @y1_max %></td>
+  </tr>
+  <tr>
+    <td>BR</td>
+    <td><%= @x2_min %></td>
+    <td>(na)</td>
+    <td>(na)</td>
+    <td><%= @y2_max %></td>
+  </tr>
+  <tr>
+    <td>TR</td>
+    <td><%= @x3_min %></td>
+    <td><%= @y3_min %></td>
+    <td>(na)</td>
+    <td>(na)</td>
+  </tr>
+  <tr>
+    <td>TL</td>
+    <td>(na)</td>
+    <td><%= @y4_min %></td>
+    <td>(na)</td>
+    <td><%= @x4_max %></td>
+  </tr>
+</table>
+
+<h2>Bounding Box </h2>
+<table border="1" >
+  <th>
+    Axis
+  </th>
+  <th>
+    Min
+  </th>
+  <th>
+    Max
+  </th>
+  <tr>
+    <td>
+      x
+    </td>
+    <td>
+      <%= @min_x %>
+    </td>
+    <td>
+      <%= @max_x %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      y
+    </td>
+    <td>
+      <%= @min_y %>
+    </td>
+    <td>
+      <%= @max_y %>
+    </td>
+  </tr>
+</table>
+
+<h2>Expected Position</h2>
+<table border="1">
+  <tr>
+    <td>
+      Axis
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      x
+    </td>
+    <td>
+      <%= @expected_x %>
+    </td>
+  <tr>
+  </tr>
+    <td>
+      y
+    </td>
+    <td>
+      <%= @expected_y %>
+    </td>
+  </tr>
+</table>
+<br/>
+<br/>
+<h2>javascript tests</h2>
+<script type="text/javascript" >
+  $(document).ready(function(){
+    $("p").click(function(){
+      $(this).hide();
+    });
+  }); 
+</script>
+<p>test one</p>
+<a onclick="f1();" >test two</a>
