@@ -1,5 +1,6 @@
 require "net/http"
 require "uri"
+require 'socket'
 
 SEPARATION_X = 10
 SEPARATION_Y = 10
@@ -7,9 +8,12 @@ SEPARATION_Y = 10
 M = -1.77
 B = -55.2
 
+SOCKET0 = UDPSocket.new
+SOCKET0.bind(nil,1234)
+
 class T1sController < ApplicationController
   def index
-    @rssi1 = -57 # Net::HTTP.get_response(URI('http://10.0.5.127/rssi.txt')).body.to_i
+    @rssi1, sender = SOCKET0.recvfrom(26)
     @rssi2 = -55 # Net::HTTP.get_response(URI('http://10.0.5.126/rssi.txt')).body.to_i
     @rssi3 = -65 # Net::HTTP.get_response(URI('http://10.0.5.129/rssi.txt')).body.to_i
     @rssi4 = -68 # Net::HTTP.get_response(URI('http://10.0.5.128/rssi.txt')).body.to_i
