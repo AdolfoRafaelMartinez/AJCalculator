@@ -5,6 +5,7 @@
 // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+<<<<<<< HEAD
 // the compiled file.
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
@@ -12,4 +13,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+=======
+// compiled file.
+//
+// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+>>>>>>> 5086c8769f65b2117c8aaa7ebea749ab53bac3cf
 //= require_tree .
