@@ -8,15 +8,20 @@ SEPARATION_Y = 10
 M = -1.77
 B = -55.2
 
-SOCKET0 = UDPSocket.new
-SOCKET0.bind(nil,1234)
+# SOCKET0 = UDPSocket.new
+# SOCKET0.bind(nil,1234)
 
 class T1sController < ApplicationController
   def index
-    @rssi1, sender = SOCKET0.recvfrom(26)
-    @rssi2 = -55 # Net::HTTP.get_response(URI('http://10.0.5.126/rssi.txt')).body.to_i
-    @rssi3 = -65 # Net::HTTP.get_response(URI('http://10.0.5.129/rssi.txt')).body.to_i
-    @rssi4 = -68 # Net::HTTP.get_response(URI('http://10.0.5.128/rssi.txt')).body.to_i
+    message1 = File.read("ANT1_data.txt")
+    message2 = File.read("ANT2_data.txt")
+    message3 = File.read("ANT3_data.txt")
+    message4 = File.read("ANT4_data.txt")
+
+    @rssi1 = message1[2].to_i
+    @rssi2 = message2[2].to_i
+    @rssi3 = message3[2].to_i
+    @rssi4 = message4[2].to_i
 
     @sensor1_distance_model = model_distance M, B, @rssi1
     @sensor2_distance_model = model_distance M, B, @rssi2
